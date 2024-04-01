@@ -1,25 +1,16 @@
-"use client"
-import { useAuthContext } from "@/context/authContext"
-import LoginForm from "../components/loginForm/loginForm"
-import { useRouter } from "next/navigation"
-function HomePage() {
+import { cookies } from "next/headers";
+import LoginForm from "../components/loginForm/loginForm";
+import { redirect } from "next/navigation";
 
-	const {user} = useAuthContext()
-
-	const router = useRouter()
-	if (user) {
-		router.push("/dashboard")
-	}
-	
-
+async function HomePage() {
 	return (
-	  <section>
-		<div>
-		  <h1 className="text-white text-5xl"></h1>
-		  <LoginForm></LoginForm>
-		</div>
-	  </section>
-	)
-  }
-  
-  export default HomePage
+		<section>
+			<div>
+				<h1 className="text-white text-5xl"></h1>
+				<LoginForm></LoginForm>
+			</div>
+		</section>
+	);
+}
+
+export default HomePage;
