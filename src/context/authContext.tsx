@@ -7,9 +7,7 @@ import React, {
 	useCallback,
 } from "react";
 
-const authContext = createContext({
-	user: null,
-});
+const authContext = createContext<any>(null);
 
 function AuthContextProvider({ children }: { children: React.ReactNode }) {
 	const [user, setUser] = useState(null);

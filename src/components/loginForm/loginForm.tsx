@@ -1,41 +1,42 @@
 "use client";
 
-import {  useState } from "react";
-import {useAuthContext} from "../../context/authContext"
+import { useState } from "react";
+import { useAuthContext } from "../../context/authContext";
 
 function LoginForm() {
-
-	const {iniciarSesion} = useAuthContext()
+	const { iniciarSesion } = useAuthContext();
 
 	const [inputs, setInputs] = useState({
-		passwordUser: "",
-		nameUser: "",
+		userPassword: "",
+		userEmail: "",
 	});
 
-	const handleChange = (e) => {
+	const handleChange = (e: any) => {
 		setInputs({ ...inputs, [e.target.name]: e.target.value });
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		iniciarSesion(inputs);
 	};
 
 	return (
 		<div className="h-[calc(100vh-7rem)] flex justify-center items-center">
-			<form onSubmit={handleSubmit} className="w-1/4">
+			<form
+				onSubmit={handleSubmit}
+				className="w-1/4">
 				<h1 className="text-slate-200 font-bold text-4xl mb-4">
 					Iniciar Sesion
 				</h1>
 
 				<label
-					htmlFor="user"
+					htmlFor="email"
 					className="text-slate-500 mb-2 block text-sm">
 					Usuario:
 				</label>
 				<input
-					type="user"
-					name="nameUser"
+					type="email"
+					name="userEmail"
 					onChange={handleChange}
 					className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
 					placeholder="Nombre de usuario"
@@ -48,7 +49,7 @@ function LoginForm() {
 				</label>
 				<input
 					type="password"
-					name="passwordUser"
+					name="userPassword"
 					onChange={handleChange}
 					className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
 					placeholder="******"
