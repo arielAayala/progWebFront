@@ -15,13 +15,15 @@ const handler = NextAuth({
 					{
 						method: "POST",
 						body: JSON.stringify({
-							emailUser: credentials?.email,
-							passwordUser: credentials?.password,
+							userEmail: credentials?.email,
+							userPassword: credentials?.password,
 						}),
 						headers: { "Content-Type": "application/json" },
 					}
 				);
 				const user = await res.json();
+
+				console.log(user);
 
 				if (user.error) {
 					return null;
