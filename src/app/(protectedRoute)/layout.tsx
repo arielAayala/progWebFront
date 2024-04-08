@@ -11,12 +11,12 @@ function ProtectedRouteLayout({ children }: Props) {
 	const { user } = useAuthContext();
 	const router = useRouter();
 
-	if (
+	/* if (
 		!user ||
 		user.userRoles?.some((i: any) => i.nameRole === "administrador")
 	) {
 		router.push("/auth");
-	}
+	} */
 
 	return <>{children}</>;
 }
